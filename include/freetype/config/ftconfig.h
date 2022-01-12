@@ -45,6 +45,16 @@
 #include <freetype/config/public-macros.h>
 #include <freetype/config/mac-support.h>
 
+#ifdef FT_EXPORT
+#undef FT_EXPORT
+#define FT_EXPORT(x)  __declspec(dllexport) x
+#endif
+
+#ifdef FT_BASE
+#undef FT_BASE
+#define FT_BASE(x)    __declspec(dllexport) x
+#endif
+
 #endif /* FTCONFIG_H_ */
 
 
